@@ -8,10 +8,11 @@ This is a CMS-style blog that allows users to publish articles and posts, as wel
 
 1. TO-DO
 
-## Links to videos:
+## Screenshots:
 
-1. TO-DO
+![Deployed Website](./assets/Animation.gif)
 
 ### Links:
 
-1. URL of the GitHub repository: https://github.com/XvrTeo/Tech-Blog
+1. URL of the functional, deployed application:
+2. URL of the GitHub repository: https://github.com/XvrTeo/Tech-Blog
