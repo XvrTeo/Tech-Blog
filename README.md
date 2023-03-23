@@ -15,7 +15,7 @@ or
 
 ## Screenshots:
 
-![GIF](./assets/Animation.gif)
+![GIF](./assets/animation.gif)
 
 ### Links:
 
