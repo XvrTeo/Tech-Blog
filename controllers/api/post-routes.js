@@ -5,7 +5,7 @@ const withAuth = require("../../utils/auth");
 
 // sets up a route handler for a GET request to the root endpoint
 router.get("/", (req, res) => {
-  console.log("=================");
+  console.log("===============");
   // find all posts and associated comments and users
   Post.findAll({
     include: [

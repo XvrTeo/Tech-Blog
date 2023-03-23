@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-
 router.get("/", (req, res) => {
 // use findAll method from the User model to retrieve all users from the database
   User.findAll({
@@ -111,9 +110,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-
 router.put("/:id", (req, res) => {
-
 
   User.update(req.body, {
     individualHooks: true,

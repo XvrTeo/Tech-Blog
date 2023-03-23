@@ -4,7 +4,7 @@ const { Post, User, Comment } = require("../models");
 
 // sets up a route to handle GET requests to the root URL
 router.get("/", (req, res) => {
-  console.log("======================");
+  console.log("===============");
   Post.findAll({
     include: [
       {
