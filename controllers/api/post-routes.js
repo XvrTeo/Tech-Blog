@@ -71,8 +71,8 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// creates a route to handle POST requests for new posts
 router.post("/", withAuth, (req, res) => {
-
     Post.create({
       title: req.body.title,
       post_content: req.body.post_content,
@@ -85,6 +85,7 @@ router.post("/", withAuth, (req, res) => {
       });
 });
 
+// creates a route to handle PUT requests for updating existing posts
 router.put("/:id", withAuth, (req, res) => {
   Post.update(
     {
@@ -109,6 +110,7 @@ router.put("/:id", withAuth, (req, res) => {
     });
 });
 
+// creates a route to handle DELETE requests for existing posts
 router.delete("/:id", withAuth, (req, res) => {
   console.log("id", req.params.id);
   Post.destroy({

@@ -69,8 +69,9 @@ router.post("/", (req, res) => {
     });
 });
 
+// POST request that accepts user email and password as input data
 router.post('/login', (req, res) => {
-
+// uses the findOne() method to find a user with the given email in the User model
   User.findOne({
     where: {
       email: req.body.email
@@ -80,28 +81,24 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'No user found with that email address.' });
       return;
     }
-
+// checks if the password provided in the request matches with the user's password using the checkPassword() method defined in the User model
     const validPassword = dbUserData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res.status(400).json({ message: 'That is the incorrect password.' });
       return;
     }
-
     req.session.save(() => {
-
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
-
       res.json({ user: dbUserData, message: 'You are now logged in.' });
     });
   });
 });
 
+// POST request that destroys the current session when the user logs out
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -110,8 +107,8 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// PUT request that updates user data in the User model
 router.put("/:id", (req, res) => {
-
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -131,6 +128,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// DELETE request that deletes a user from the User model with the given ID
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
